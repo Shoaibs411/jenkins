@@ -1,6 +1,9 @@
 // reference for jenkins syntax - https://www.jenkins.io/doc/book/pipeline/syntax/  
 pipeline{
-    agent any
+    // agent any - it means run on any available node
+    agent {
+        label 'ws'
+    }
     
     environment{
         ENV_URL = "pipeline.global-variable.com"             // Pipeline based variable(Global Variable)
@@ -26,6 +29,7 @@ pipeline{
     stages{
         stage("Name of the Stage - 1") {
             steps {
+                sh "hostname"
                 sh "mvn --version"
                 sh "echo Step 1 of Stage 1"
                 sh "echo Name of the variable is ${ENV_URL}"
