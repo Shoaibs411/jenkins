@@ -16,6 +16,8 @@ pipeline{
 
     // triggers {cron('*/1 * * * *')}
 
+    options { buildDiscarder(logRotator(numToKeepStr: '3')) }
+
     triggers { pollSCM('*/1 * * * *') }
 
     stages{
