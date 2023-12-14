@@ -18,7 +18,7 @@ pipeline{
 
     options { 
         buildDiscarder(logRotator(numToKeepStr: '10')) 
-        timeout(time: 2, unit: 'MINUTES')
+        timeout(time: 1, unit: 'MINUTES')
         }
 
     triggers { pollSCM('*/1 * * * *') }
