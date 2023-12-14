@@ -56,6 +56,7 @@ pipeline{
                 }
             }
         }
+        }
 
         stage("Name of the Stage - 2") {
             environment{
@@ -73,5 +74,4 @@ pipeline{
             }
         }
     }
-}
 }
