@@ -16,7 +16,10 @@ pipeline{
 
     // triggers {cron('*/1 * * * *')}
 
-    options { buildDiscarder(logRotator(numToKeepStr: '10')) }
+    options { 
+        buildDiscarder(logRotator(numToKeepStr: '10')) 
+        timeout(time: 2, unit: 'MINUTES')
+        }
 
     triggers { pollSCM('*/1 * * * *') }
 
@@ -25,6 +28,7 @@ pipeline{
             steps {
                 sh "echo Step 1 of Stage 1"
                 sh "echo Name of the variable is ${ENV_URL}"
+                sh "sleep 150"
             }
         }
 
