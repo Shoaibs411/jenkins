@@ -3,6 +3,7 @@ pipeline{
     agent any
     environment{
         ENV_URL = "pipeline.global-variable.com"             // Pipeline based variable(Global Variable)
+        SSH_CRED = "credentials('SSH_CRED')"
     }
     stages{
         stage("Name of the Stage - 1") {
@@ -25,8 +26,6 @@ pipeline{
         stage("Name of the Stage - 3") {
             steps {
                 sh "echo Step 1 of Stage 3"
-                sh "echo Step 2 of Stage 3"
-                sh "echo Step 3 of Stage 3"
             }
         }
     }
