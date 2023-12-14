@@ -29,7 +29,7 @@ pipeline{
                 sh "mvn --version"
                 sh "echo Step 1 of Stage 1"
                 sh "echo Name of the variable is ${ENV_URL}"
-                sh "sleep 150"
+                sh "env"
             }
         }
 
