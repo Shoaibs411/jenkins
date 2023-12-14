@@ -33,6 +33,30 @@ pipeline{
             }
         }
 
+        stage("Demo on Parallel stage"){
+
+        parallel {
+            stage('Downloading A') {
+                steps {
+                    sh "echo Download A in progress"
+                    sh "sleep 120" 
+
+                }
+            }
+            stage('Downloading B') {
+                steps {
+                    sh "echo Download B in progress"
+                    sh "sleep 120" 
+                }
+            }
+            stage('Downloadin C') {
+                steps {
+                    sh "echo Download C in progress"
+                    sh "sleep 120"
+                }
+            }
+        }
+
         stage("Name of the Stage - 2") {
             environment{
                 ENV_URL = "stage.task-level-variable.com"
