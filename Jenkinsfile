@@ -14,6 +14,10 @@ pipeline{
         //password(name: 'PASSWORD', defaultValue: 'SECRET', description: 'Enter a password')
     }
 
+    triggers {
+        cron('*/1 * * * *')
+    }
+
     stages{
         stage("Name of the Stage - 1") {
             steps {
