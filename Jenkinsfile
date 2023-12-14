@@ -16,7 +16,7 @@ pipeline{
 
     // triggers {cron('*/1 * * * *')}
 
-    options { buildDiscarder(logRotator(numToKeepStr: '3')) }
+    options { buildDiscarder(logRotator(numToKeepStr: '10')) }
 
     triggers { pollSCM('*/1 * * * *') }
 
