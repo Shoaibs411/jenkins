@@ -43,20 +43,20 @@ pipeline{
             stage('Downloading A') {
                 steps {
                     sh "echo Download A in progress"
-                    sh "sleep 120" 
+                    sh "sleep 60" 
 
                 }
             }
             stage('Downloading B') {
                 steps {
                     sh "echo Download B in progress"
-                    sh "sleep 120" 
+                    sh "sleep 60" 
                 }
             }
             stage('Downloadin C') {
                 steps {
                     sh "echo Download C in progress"
-                    sh "sleep 120"
+                    sh "sleep 60"
                 }
             }
         }
