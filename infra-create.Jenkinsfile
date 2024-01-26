@@ -54,7 +54,7 @@ pipeline {
 
         stage('Backend') {
             parallel {
-                stage('creating Catalogue') {
+                stage('Creating Catalogue') {
                     steps {
                         dir('catalogue') {   
                             git branch: 'main', url: 'https://github.com/Shoaibs411/catalogue.git'
@@ -70,7 +70,7 @@ pipeline {
                             }
                         }
                     } 
-                stage('creating User') {
+                stage('Creating User') {
                     steps {
                         dir('user') {  git branch: 'main', url: 'https://github.com/Shoaibs411/user.git'
                                 sh ''' 
@@ -84,7 +84,7 @@ pipeline {
                             }
                         }
                     }
-                // stage('creating Cart') {
+                // stage('Creating Cart') {
                 //     steps {
                 //         dir('cart') { git branch: 'main', url: 'https://github.com/Shoaibs411/cart.git'
                 //                 sh ''' 
@@ -98,7 +98,7 @@ pipeline {
                 //             }
                 //         }
                 //     }
-                // stage('creating Shipping') {
+                // stage('Creating Shipping') {
                 //     steps {
                 //         dir('shipping') { git branch: 'main', url: 'https://github.com/Shoaibs411/shipping.git'
                 //                 sh ''' 
@@ -112,7 +112,7 @@ pipeline {
                 //             }
                 //         }
                 //     }
-                // stage('creating Payment') {
+                // stage('Creating Payment') {
                 //     steps {
                 //         dir('payment') { git branch: 'main', url: 'https://github.com/Shoaibs411/payment.git'
                 //                 sh ''' 
@@ -128,7 +128,7 @@ pipeline {
                 //         }
                     }
                 }
-        // stage('creating Frontend') {
+        // stage('Creating Frontend') {
         //         steps {
         //                 dir('frontend') {  git branch: 'main', url: 'https://github.com/Shoaibs411/frontend.git'
         //                     sh ''' 
