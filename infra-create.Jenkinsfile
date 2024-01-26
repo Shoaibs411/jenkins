@@ -60,8 +60,7 @@ pipeline {
                             git branch: 'main', url: 'https://github.com/Shoaibs411/catalogue.git'
                                 sh ''' 
                                     cd mutable-infra
-                                    ls -ltr /tmp/terraform* || true
-                                    rm -rf /tmp/terraform* || true
+                                    rm -rf .terraform
                                     terrafile -f env-${ENV}/Terrafile
                                     terraform init --backend-config=env-${ENV}/${ENV}-backend.tfvars -reconfigure
                                     terraform plan -var-file=env-${ENV}/${ENV}.tfvars -var APP_VERSION=0.0.2
@@ -76,6 +75,7 @@ pipeline {
                             git branch: 'main', url: 'https://github.com/Shoaibs411/user.git'
                                 sh ''' 
                                     cd mutable-infra
+                                    rm -rf .terraform
                                     terrafile -f env-${ENV}/Terrafile
                                     terraform init -backend-config=env-${ENV}/${ENV}-backend.tfvars -reconfigure
                                     terraform plan -var-file=env-${ENV}/${ENV}.tfvars -var APP_VERSION=0.0.1
@@ -90,6 +90,7 @@ pipeline {
                             git branch: 'main', url: 'https://github.com/Shoaibs411/cart.git'
                                 sh ''' 
                                     cd mutable-infra
+                                    rm -rf .terraform
                                     terrafile -f env-${ENV}/Terrafile
                                     terraform init --backend-config=env-${ENV}/${ENV}-backend.tfvars -reconfigure
                                     terraform plan -var-file=env-${ENV}/${ENV}.tfvars -var APP_VERSION=0.0.2
@@ -104,6 +105,7 @@ pipeline {
                             git branch: 'main', url: 'https://github.com/Shoaibs411/shipping.git'
                                 sh ''' 
                                     cd mutable-infra
+                                    rm -rf .terraform
                                     terrafile -f env-${ENV}/Terrafile
                                     terraform init --backend-config=env-${ENV}/${ENV}-backend.tfvars -reconfigure
                                     terraform plan -var-file=env-${ENV}/${ENV}.tfvars -var APP_VERSION=0.0.1
@@ -118,6 +120,7 @@ pipeline {
                             git branch: 'main', url: 'https://github.com/Shoaibs411/payment.git'
                                 sh ''' 
                                     cd mutable-infra
+                                    rm -rf .terraform
                                     terrafile -f env-${ENV}/Terrafile
                                     terraform init --backend-config=env-${ENV}/${ENV}-backend.tfvars -reconfigure
                                     terraform plan -var-file=env-${ENV}/${ENV}.tfvars -var APP_VERSION=0.0.1
