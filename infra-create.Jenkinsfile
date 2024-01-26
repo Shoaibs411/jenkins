@@ -127,25 +127,25 @@ pipeline {
                 }
             }
         }
-}
-        // stage('Creating Frontend') {
-        //         steps {
-        //                 dir('frontend') {  git branch: 'main', url: 'https://github.com/Shoaibs411/frontend.git'
-        //                     sh ''' 
-        //                         cd mutable-infra
-        //                         rm -rf .terraform
-        //                         terrafile -f env-${ENV}/Terrafile
-        //                         terraform init --backend-config=env-${ENV}/${ENV}-backend.tfvars -reconfigure
-        //                         terraform plan -var-file=env-${ENV}/${ENV}.tfvars -var APP_VERSION=0.0.1
-        //                         terraform apply -var-file=env-${ENV}/${ENV}.tfvars -var APP_VERSION=0.0.1 -auto-approve
-        //                     ''' 
-        //                 }
-        //             }
-        //         }
+        stage('Creating Frontend') {
+                steps {
+                        dir('frontend') {  git branch: 'main', url: 'https://github.com/Shoaibs411/frontend.git'
+                            sh ''' 
+                                cd mutable-infra
+                                rm -rf .terraform
+                                terrafile -f env-${ENV}/Terrafile
+                                terraform init --backend-config=env-${ENV}/${ENV}-backend.tfvars -reconfigure
+                                terraform plan -var-file=env-${ENV}/${ENV}.tfvars -var APP_VERSION=0.0.1
+                                terraform apply -var-file=env-${ENV}/${ENV}.tfvars -var APP_VERSION=0.0.1 -auto-approve
+                            ''' 
+                        }
+                    }
+                }
 
         post {
                 always {
                     cleanWs()
                 }
             }
+    }
 }
