@@ -1,8 +1,6 @@
 
 pipeline {
-    agent {
-        label 'ws'
-    }
+    agent any
     options {
         ansiColor('xterm')
     }
