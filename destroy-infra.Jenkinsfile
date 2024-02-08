@@ -91,7 +91,6 @@ pipeline {
                 dir('ALB') {
                 git branch: 'main', url: 'https://github.com/Shoaibs411/terraform-loadbalancers.git'
                         sh '''
-                            sleep 15
                             terrafile -f env-dev/Terrafile
                             terraform init --backend-config=env-${ENV}/${ENV}-backend.tfvars -reconfigure
                             terraform destroy -auto-approve -var-file=env-${ENV}/${ENV}.tfvars -var ENV=${ENV}
